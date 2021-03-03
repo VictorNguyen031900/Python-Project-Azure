@@ -16,7 +16,7 @@ steps:
 - task: PublishTestResults@2
   displayName: 'Publish Test Results **/test-results.xml'
   inputs:
-    testResultsFiles: '**/test-results.xml'
+    testResultsFiles: '***/test-results.xml'
     searchFolder: '$(Common.TestResultsDirectory)'
     testRunTitle: 'Python Unit tests'
 
