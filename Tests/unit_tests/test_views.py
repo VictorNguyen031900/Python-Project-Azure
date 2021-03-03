@@ -13,9 +13,6 @@ This is set in manage.py. We need to explicitly set it for tests to work with py
 """
 
 sys.path.append(os.path.join(os.getcwd(), 'Application'))
-os.environ.setdefault(
-    "DJANGO_SETTINGS_MODULE"
-)
 django.setup()
 
 class ViewTest(TestCase):
