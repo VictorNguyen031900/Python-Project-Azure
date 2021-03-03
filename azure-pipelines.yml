@@ -1,6 +1,6 @@
 pool:
   name: Azure Pipelines
-  vmImage: 'ubuntu-latest'
+  vmImage: 'vs2017-win2016'
 steps:
 - task: UsePythonVersion@0
   displayName: 'Use Python 2.x'
