@@ -13,13 +13,13 @@ steps:
 - script: 'pip install -r Application/requirements.txt'
   displayName: 'Install dependencies'
 
-- script: 'pip install pytest && pytest Tests/unit_tests --junitxml=test-results.xml && pip install pycmd && py.cleanup Tests/'
+- script: 'pip install pytest && pytest Tests/unit_tests --junitxml=../TestResults/test-results.xml && pip install pycmd && py.cleanup Tests/'
   displayName: pytest
 
 - task: PublishTestResults@2
-  displayName: 'Publish Test Results test-results.xml'
+  displayName: 'Publish Test Results **/test-results.xml'
   inputs:
-    testResultsFiles: 'test-results.xml'
+    testResultsFiles: '**/test-results.xml'
     searchFolder: '$(System.DefaultWorkingDirectory)'
     testRunTitle: 'Python Unit tests'
 
