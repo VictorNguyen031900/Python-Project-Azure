@@ -28,14 +28,14 @@ steps:
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)/Application'
     includeRootFolder: false
-    archiveFile: '$(Build.ArtifactStagingDirectory)/Application$(Build.BuildId).zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/Application.zip'
 
 - task: ArchiveFiles@2
   displayName: 'Archive Tests'
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)/Tests'
     includeRootFolder: false
-    archiveFile: '$(Build.ArtifactStagingDirectory)/Tests$(Build.BuildId).zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/Tests.zip'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
