@@ -13,9 +13,7 @@ steps:
 - script: 'pip install -r Application/requirements.txt'
   displayName: 'Install dependencies'
 
-- script: 'pip install pytest && pytest Tests/unit_tests --junitxml=test-results.xml && pip install pycmd && py.cleanup Tests/' 
-  'dir'
-  'cd'
+- script: 'pip install pytest && pytest Tests/unit_tests --junitxml=test-results.xml && pip install pycmd && py.cleanup Tests/'
   displayName: pytest
 
 - task: PublishTestResults@2
@@ -25,10 +23,6 @@ steps:
     searchFolder: '$(System.DefaultWorkingDirectory)'
     testRunTitle: 'Python Unit tests'
 
-- script: 'dir'
-  'cd'
-  displayName: 'Seeing DIR'
-
 - task: ArchiveFiles@2
   displayName: 'Archive application'
   inputs:
@@ -36,20 +30,12 @@ steps:
     includeRootFolder: false
     archiveFile: '$(Build.ArtifactStagingDirectory)/Application.zip'
 
-- script: 'dir'
-  'cd'
-  displayName: 'Seeing DIR'
-
 - task: ArchiveFiles@2
   displayName: 'Archive Tests'
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)/Tests'
     includeRootFolder: false
     archiveFile: '$(Build.ArtifactStagingDirectory)/Tests.zip'
-
-- script: 'dir'
-  'cd'
-  displayName: 'Seeing DIR'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
